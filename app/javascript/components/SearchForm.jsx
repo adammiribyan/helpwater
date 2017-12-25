@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import axios from 'axios'
-import { debounce } from 'lodash'
+import { debounce, trim } from 'lodash'
 
 @connect(state => {
   return {
@@ -34,7 +34,7 @@ class SearchForm extends Component {
 
     axios.post('/searches.json', {
       search: {
-        query: this.state.query,
+        query: trim(this.state.query),
         user_ip: this.props.userIp || '',
       },
     })

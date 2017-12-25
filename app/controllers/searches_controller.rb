@@ -2,7 +2,9 @@ class SearchesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @searches = Search.order('created_at desc').group(:query).count.to_a
+    @searches = Search.order('created_at desc').group_by(&:query).map { |query, searches|
+      [query, searches.count]
+    }
   end
 
   def create
