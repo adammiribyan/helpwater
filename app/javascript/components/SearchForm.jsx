@@ -22,7 +22,7 @@ class SearchForm extends Component {
   handleChange = e => {
     this.setState({ query: e.target.value })
 
-    if (this.state.active) {
+    if (this.state.active && this.state.query.length > 0) {
       this.saveSearch()
     }
   }

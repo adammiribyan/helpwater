@@ -33,9 +33,9 @@ class Searches extends Component {
           </thead>
           <tbody>
             {this.props.searches.map(search => (
-              <tr key={search.id}>
+              <tr key={search.query}>
                 <td>{search.query}</td>
-                <td>1</td>
+                <td>{search.count}</td>
               </tr>
             ))}
           </tbody>
