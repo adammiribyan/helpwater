@@ -1,7 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import axios from 'axios'
 
+import { fetchSearches } from '../actions'
+
+@connect(state => {
+  return {
+    isOutdated: state.isOutdated,
+    searches: state.searches,
+  }
+})
 class Searches extends Component {
   render() {
+    if (this.props.isOutdated) {
+      this.props.dispatch(fetchSearches())
+    }
+
     return (
       <article className="searches">
         <h1 className="searches__heading">

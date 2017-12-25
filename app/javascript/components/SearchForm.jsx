@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import axios from 'axios'
 import { debounce } from 'lodash'
 
+@connect(state => {
+  return {
+    isOutdated: state.isOutdated,
+  }
+})
 class SearchForm extends Component {
   constructor(props) {
     super(props)
@@ -15,10 +21,17 @@ class SearchForm extends Component {
 
   handleChange = e => {
     this.setState({ query: e.target.value })
-    this.saveSearch()
+
+    if (this.state.active) {
+      this.saveSearch()
+    }
   }
 
   saveSearch = debounce(() => {
+    this.props.dispatch({
+      type: 'SEARCH_ADDED',
+    })
+
     axios.post('/searches.json', {
       search: {
         query: this.state.query,

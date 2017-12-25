@@ -2,7 +2,7 @@ class SearchesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @searches = Search.all
+    @searches = Search.where('query is not ""').order('created_at desc')
     render json: @searches, status: :ok
   end
 

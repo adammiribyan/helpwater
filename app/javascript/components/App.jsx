@@ -16,12 +16,6 @@ class App extends Component {
     }
   }
 
-  componentWillMount() {
-    axios.get('/searches.json').then(response => {
-      this.setState({ searches: response.data })
-    })
-  }
-
   render() {
     return (
       <div>
@@ -33,7 +27,7 @@ class App extends Component {
         </header>
 
         <div className="centered">
-          <Searches searches={this.state.searches} />
+          <Searches />
         </div>
       </div>
     )
