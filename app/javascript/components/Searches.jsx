@@ -1,29 +1,6 @@
 import React, { Component } from 'react'
 
 class Searches extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      searches: [
-        {
-          id: '1',
-          query: 'turn off notifications',
-          user: {
-            ip_address: '94.230.147.162',
-          },
-        },
-        {
-          id: '2',
-          query: 'how to add a new client',
-          user: {
-            ip_address: '94.230.147.162',
-          },
-        },
-      ],
-    }
-  }
-
   render() {
     return (
       <article className="searches">
@@ -35,12 +12,16 @@ class Searches extends Component {
           <thead>
             <tr>
               <th>Query</th>
+              <th>
+                Searches, <small>times</small>
+              </th>
             </tr>
           </thead>
           <tbody>
-            {this.state.searches.map(search => (
+            {this.props.searches.map(search => (
               <tr key={search.id}>
                 <td>{search.query}</td>
+                <td>1</td>
               </tr>
             ))}
           </tbody>

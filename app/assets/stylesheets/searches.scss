@@ -1,7 +1,12 @@
 .search-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
+  width: 100%;
+  text-align: left;
+
+  th {
+    small {
+      font-variant: small-caps;
+    }
+  }
 }
 
 .searches {

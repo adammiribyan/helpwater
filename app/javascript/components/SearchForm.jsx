@@ -19,7 +19,7 @@ class SearchForm extends Component {
   }
 
   saveSearch = debounce(() => {
-    axios.post('/searches', {
+    axios.post('/searches.json', {
       search: {
         query: this.state.query,
         user_ip: this.props.userIp || '',
