@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <header>
-          <SearchForm />
+          <SearchForm placeholder="Find article" />
         </header>
 
         <div className="centered">

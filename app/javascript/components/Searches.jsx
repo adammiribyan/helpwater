@@ -31,13 +31,20 @@ class Searches extends Component {
           <strong className="sketch-underline">They've Been Wondering…</strong>
         </h1>
 
-        <ul className="search-list">
-          {this.state.searches.map(search => (
-            <li className="search-list__item" key={search.id}>
-              {search.query}
-            </li>
-          ))}
-        </ul>
+        <table className="search-list">
+          <thead>
+            <tr>
+              <th>Query</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.searches.map(search => (
+              <tr key={search.id}>
+                <td>{search.query}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </article>
     )
   }
