@@ -22,7 +22,7 @@ class SearchForm extends Component {
     axios.post('/searches', {
       search: {
         query: this.state.query,
-        user_ip: '127.0.0.1',
+        user_ip: this.props.userIp || '',
       },
     })
   }, 1000)
